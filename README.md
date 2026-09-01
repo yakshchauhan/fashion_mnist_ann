@@ -1,4 +1,4 @@
-# Fashion-MNIST ANN — V1
+# Fashion MNIST ANN — V1
 
 A simple Artificial Neural Network built with **PyTorch** to classify Fashion-MNIST images.
 
