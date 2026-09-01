@@ -26,10 +26,28 @@ The dataset contains:
 
 The CSV files are **not included in this repository**.
 
-## Preprocessing
+## Model
 
-Pixel values ranging from `0–255` were scaled to `0–1`:
+- ReLU activation
+- Cross Entropy Loss
+- SGD optimizer
+- Learning rate: `0.01`
+- Batch size: `32`
+- Epochs: `200`
 
-```python
-X_train = X_train / 255.0
-X_test = X_test / 255.0
+## Reproducibility
+
+- Random seed: `100`
+- Training samples: `60,000`
+- Test samples: `10,000`
+- Input features: `784`
+- Pixel scaling: `/255.0`
+
+Results may vary if the dataset, preprocessing, or training configuration is changed.
+
+## Tech Stack
+
+- Python
+- PyTorch
+- Pandas
+- Matplotlib
