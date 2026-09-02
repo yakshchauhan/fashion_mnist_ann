@@ -83,6 +83,7 @@ Batch Size:        256
 Optimizer:         Adam
 Weight Decay:      0.000030786
 Test Accuracy:     89.45%
+```
 
 ## Overfitting
 
@@ -92,47 +93,7 @@ I used Dropout, Batch Normalization and Weight Decay for this.
 
 I also compared training and test/validation performance to see how well the model was generalizing.
 
-## Training Process
-
-```
-Fashion-MNIST
-      ↓
-Normalize Images
-      ↓
-PyTorch Dataset
-      ↓
-DataLoader
-      ↓
-ANN
-      ↓
-Forward Pass
-      ↓
-Cross Entropy Loss
-      ↓
-Backpropagation
-      ↓
-Optimizer
-      ↓
-Evaluation
-```
-
 For V2, Optuna was added to the process to search for better hyperparameters.
-
-## What I Learned
-
-Through this project I got more familiar with:
-
-- Building neural networks using PyTorch
-- Creating custom Dataset and DataLoader
-- Training models on a GPU
-- Forward and backward propagation
-- Batch Normalization
-- Dropout
-- Weight Decay
-- Different optimizers
-- Hyperparameter tuning with Optuna
-- Evaluating model performance
-- Understanding overfitting
 
 ## Reproducibility
 
@@ -155,12 +116,4 @@ The exact results can vary depending on the random seed, PyTorch version, hardwa
 
 ## Future Work
 
-Some things I want to try next:
-
 - Build a CNN and compare it with this ANN
-- Use a separate validation set for Optuna instead of the test set
-- Plot training and validation accuracy/loss
-- Add a confusion matrix
-- Check accuracy for each class
-- Try learning-rate schedulers
-- Compare the ANN and CNN results
