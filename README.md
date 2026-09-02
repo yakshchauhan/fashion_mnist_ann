@@ -7,6 +7,7 @@ A simple Artificial Neural Network built with **PyTorch** to classify Fashion-MN
 - Training samples: **60,000**
 - Test samples: **10,000**
 - Test Accuracy: **88.49%**
+- Test Accuracy: **98%**
 - Epochs: **200**
 
 > The reported accuracy is based on the exact 60,000/10,000 train-test split used in this project. Using a different dataset version, split, preprocessing, or labels may produce different results.
