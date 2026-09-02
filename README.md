@@ -1,34 +1,46 @@
-# Fashion MNIST ANN — V1
+# Fashion-MNIST ANN — V1 & V2
 
-A simple Artificial Neural Network built with **PyTorch** to classify Fashion-MNIST images.
+A Fashion-MNIST image classification project built with **PyTorch**, developed in two versions to improve an Artificial Neural Network (ANN) through regularization and hyperparameter optimization.
+
+> **Note:** This project uses an ANN for image classification. A CNN can generally make better use of spatial features in images and may achieve better results on Fashion-MNIST.
 
 ## Results
 
-- Training samples: **60,000**
-- Test samples: **10,000**
-- Test Accuracy: **88.49%**
-- Test Accuracy: **98%**
-- Epochs: **200**
+| | V1 | V2 |
+|---|---:|---:|
+| Model | Basic ANN | Optimized ANN |
+| Hidden Layers | — | 2 |
+| Neurons/Layer | — | 88 |
+| Optimizer | SGD | Adam |
+| Learning Rate | 0.01 | 0.00059448 |
+| Batch Size | 32 | 256 |
+| Epochs | 200 | 50 |
+| Batch Normalization | ❌ | ✅ |
+| Dropout | ❌ | 0.4 |
+| Weight Decay | ❌ | 0.000030786 |
+| Optuna | ❌ | ✅ |
+| Test Accuracy | **88.49%** | **89.45%** |
 
-> The reported accuracy is based on the exact 60,000/10,000 train-test split used in this project. Using a different dataset version, split, preprocessing, or labels may produce different results.
+V2 improved the test accuracy by **0.96 percentage points** compared with V1 while using fewer epochs.
 
 ## Dataset
 
-The dataset used for this project can be found here:
+**Fashion-MNIST:** https://www.kaggle.com/datasets/zalando-research/fashionmnist
 
-**Dataset:** https://www.kaggle.com/datasets/zalando-research/fashionmnist
+- Training samples: **60,000**
+- Test samples: **10,000**
+- Image size: **28 × 28**
+- Input features: **784**
+- Classes: **10**
+- Pixel values normalized using `/255.0`
 
-The dataset contains:
+The CSV files are not included in this repository.
 
-- `fashion_train.csv` — 60,000 training samples
-- `fashion_test.csv` — 10,000 test samples
-- `label` — target class
-- 784 pixel features per image
+## V1 — Basic ANN
 
-The CSV files are **not included in this repository**.
+V1 uses a simple fully connected neural network with:
 
-## Model
-
+- Linear layers
 - ReLU activation
 - Cross Entropy Loss
 - SGD optimizer
@@ -36,19 +48,32 @@ The CSV files are **not included in this repository**.
 - Batch size: `32`
 - Epochs: `200`
 
-## Reproducibility
+V1 showed signs of **overfitting**, motivating the improvements introduced in V2.
 
-- Random seed: `100`
-- Training samples: `60,000`
-- Test samples: `10,000`
-- Input features: `784`
-- Pixel scaling: `/255.0`
+## V2 — Hyperparameter-Optimized ANN
 
-Results may vary if the dataset, preprocessing, or training configuration is changed.
+V2 adds:
 
-## Tech Stack
+- Batch Normalization
+- Dropout
+- Weight decay
+- Adam, SGD and RMSprop
+- Learning-rate search
+- Batch-size search
+- Epoch search
+- Hidden-layer search
+- Neuron search
+- **Optuna hyperparameter optimization**
 
-- Python
-- PyTorch
-- Pandas
-- Matplotlib
+### Best V2 Configuration
+
+```text
+Hidden Layers:     2
+Neurons/Layer:     88
+Epochs:            50
+Learning Rate:     0.00059448
+Dropout:           0.4
+Batch Size:        256
+Optimizer:         Adam
+Weight Decay:      0.000030786
+Test Accuracy:     89.45%
